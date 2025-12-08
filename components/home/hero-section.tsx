@@ -3,7 +3,13 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
+import {
+  ArrowRight,
+  Play,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 
 const slides = [
   {
@@ -81,7 +87,9 @@ export function HeroSection() {
         <div className="min-h-[280px] h-[280px] flex flex-col items-center justify-center">
           <div
             className={`transition-all duration-500 ease-out ${
-              isAnimating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              isAnimating
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
             }`}
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-1.5 text-sm font-medium mb-6">
@@ -90,7 +98,8 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance leading-[1.1]">
-              {slide.title} <span className="text-primary">{slide.highlight}</span> !
+              {slide.title}{" "}
+              <span className="text-primary">{slide.highlight}</span> !
             </h1>
 
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
@@ -121,7 +130,9 @@ export function HeroSection() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all ${
-                index === currentSlide ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                index === currentSlide
+                  ? "w-8 bg-primary"
+                  : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
               }`}
               aria-label={`Aller au slide ${index + 1}`}
             />
@@ -133,7 +144,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="text-base px-8 h-12 gap-2 group bg-foreground text-background border-foreground hover:bg-background hover:text-foreground transition-all duration-300"
+              className="text-base px-8 h-12 gap-2 group bg-foreground text-background border-foreground hover:bg-background hover:text-foreground dark:bg-background dark:text-foreground dark:hover:bg-foreground dark:hover:text-background transition-all duration-300"
             >
               Commencer gratuitement
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -143,7 +154,7 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="text-base px-8 h-12 gap-2 bg-foreground text-background border-foreground hover:bg-background hover:text-foreground transition-all duration-300 group"
+              className="text-base px-8 h-12 gap-2 bg-foreground text-background border-foreground hover:bg-background hover:text-foreground dark:bg-background dark:text-foreground dark:hover:bg-foreground dark:hover:text-background transition-all duration-300 group"
             >
               <Play className="h-4 w-4 fill-current" />
               Voir la démo

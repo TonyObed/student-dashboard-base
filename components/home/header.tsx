@@ -3,9 +3,15 @@
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { Menu, X, Globe, Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
 import { TaNoteLogo } from "@/components/tanote-logo"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const navLinks = [
   { href: "#features", label: "Fonctionnalités" },
@@ -24,7 +30,7 @@ export function HeaderNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [currentLang, setCurrentLang] = useState("fr")
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,21 +39,6 @@ export function HeaderNav() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme")
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    const initialTheme = stored ? (stored as "light" | "dark") : prefersDark ? "dark" : "light"
-    setTheme(initialTheme)
-    document.documentElement.classList.toggle("dark", initialTheme === "dark")
-  }, [])
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light"
-    setTheme(newTheme)
-    localStorage.setItem("theme", newTheme)
-    document.documentElement.classList.toggle("dark", newTheme === "dark")
-  }
 
   return (
     <header
@@ -82,7 +73,7 @@ export function HeaderNav() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="h-9 w-9 hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="h-9 w-9 hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary transition-colors"
                 >
                   <Globe className="h-4 w-4" />
                   <span className="sr-only">Changer de langue</span>
@@ -105,10 +96,14 @@ export function HeaderNav() {
             <Button
               variant="ghost"
               size="icon"
-              className="h-9 w-9 hover:bg-primary hover:text-primary-foreground transition-colors"
-              onClick={toggleTheme}
+              className="h-9 w-9 hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary transition-colors"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             >
-              {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              {theme === "light" ? (
+                <Moon className="h-4 w-4" />
+              ) : (
+                <Sun className="h-4 w-4" />
+              )}
               <span className="sr-only">Changer le thème</span>
             </Button>
 
@@ -116,7 +111,7 @@ export function HeaderNav() {
               <Button
                 variant="outline"
                 size="sm"
-                className="bg-foreground text-background border-foreground hover:bg-background hover:text-foreground transition-all duration-300"
+                className="bg-foreground text-background border-foreground hover:bg-background hover:text-foreground dark:bg-background dark:text-foreground dark:hover:bg-foreground dark:hover:text-background transition-all duration-300"
               >
                 Connexion
               </Button>
@@ -130,7 +125,11 @@ export function HeaderNav() {
               className="lg:hidden p-2 text-muted-foreground hover:text-primary"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>

@@ -2,7 +2,16 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LayoutDashboard, Brain, BookOpen, TrendingUp, Settings, LogOut, ChevronLeft, ChevronRight } from "lucide-react"
+import {
+  LayoutDashboard,
+  Brain,
+  BookOpen,
+  TrendingUp,
+  Settings,
+  LogOut,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import { TaNoteLogo } from "@/components/tanote-logo"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
@@ -48,7 +57,12 @@ export function Sidebar() {
       )}
     >
       {/* Header */}
-      <div className={cn("h-16 flex items-center border-b border-sidebar-border px-4", collapsed && "justify-center")}>
+      <div
+        className={cn(
+          "h-16 flex items-center border-b border-sidebar-border px-4",
+          collapsed && "justify-center",
+        )}
+      >
         <TaNoteLogo size="sm" showText={!collapsed} />
       </div>
 
@@ -64,7 +78,7 @@ export function Sidebar() {
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive
                   ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                  : "text-sidebar-foreground hover:bg-sidebar-accent",
+                  : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                 collapsed && "justify-center px-2",
               )}
               title={collapsed ? item.label : undefined}
@@ -84,17 +98,26 @@ export function Sidebar() {
           className={cn("w-full", collapsed ? "px-2" : "justify-start")}
           onClick={() => setCollapsed(!collapsed)}
         >
-          {collapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+          {collapsed ? (
+            <ChevronRight className="h-4 w-4" />
+          ) : (
+            <ChevronLeft className="h-4 w-4" />
+          )}
           {!collapsed && <span className="ml-2">Réduire</span>}
         </Button>
       </div>
 
       {/* User Section */}
-      <div className={cn("p-3 border-t border-sidebar-border", collapsed && "flex justify-center")}>
+      <div
+        className={cn(
+          "p-3 border-t border-sidebar-border",
+          collapsed && "flex justify-center",
+        )}
+      >
         <Link
           href="/auth/login"
           className={cn(
-            "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-sidebar-foreground hover:bg-sidebar-accent transition-colors",
+            "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors",
             collapsed && "px-2",
           )}
           title={collapsed ? "Déconnexion" : undefined}

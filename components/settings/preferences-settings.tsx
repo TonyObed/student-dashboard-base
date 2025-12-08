@@ -1,15 +1,16 @@
 "use client"
 
 import { useState } from "react"
+import { useTheme } from "next-themes"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 
 export function PreferencesSettings() {
+  const { theme, setTheme } = useTheme()
   const [preferences, setPreferences] = useState({
     language: "fr",
-    theme: "system",
     difficulty: "adaptive",
     showTimer: true,
     showHints: true,
@@ -48,7 +49,7 @@ export function PreferencesSettings() {
             <Label className="text-sm font-medium">Thème</Label>
             <p className="text-xs text-muted-foreground">Apparence de l'application</p>
           </div>
-          <Select value={preferences.theme} onValueChange={(value) => setPreferences({ ...preferences, theme: value })}>
+          <Select value={theme} onValueChange={setTheme}>
             <SelectTrigger className="w-[150px]">
               <SelectValue />
             </SelectTrigger>

@@ -176,7 +176,7 @@ export function PricingSection() {
                   className={`w-full mb-4 transition-all duration-300 ${
                     plan.popular
                       ? ""
-                      : "bg-foreground text-background border-foreground hover:bg-background hover:text-foreground border"
+                      : "bg-foreground text-background border-foreground hover:bg-background hover:text-foreground dark:bg-background dark:text-foreground dark:hover:bg-foreground dark:hover:text-background border"
                   }`}
                   size="sm"
                   variant={plan.popular ? "default" : "outline"}
@@ -216,7 +216,7 @@ export function PricingSection() {
           <Link href="#contact">
             <Button
               variant="outline"
-              className="gap-2 bg-foreground text-background border-foreground hover:bg-background hover:text-foreground transition-all duration-300"
+              className="gap-2 bg-foreground text-background border-foreground hover:bg-background hover:text-foreground dark:bg-background dark:text-foreground dark:hover:bg-foreground dark:hover:text-background transition-all duration-300"
             >
               <Mail className="h-4 w-4" />
               Contactez-nous pour un devis
