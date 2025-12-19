@@ -13,25 +13,31 @@ import {
 
 const slides = [
   {
-    badge: "Propulsé par l'Intelligence Artificielle",
+    badge: "Conçu pour le système éducatif ivoirien",
+    title: "Testez votre niveau et",
+    highlight: "progressz rapidement",
+    description:
+      "Évaluez gratuitement votre niveau dans les matières clés du programme ivoirien et recevez un plan d'apprentissage personnalisé.",
+    cta: "Test mon niveau",
+    ctaLink: "/test-niveau"
+  },
+  {
+    badge: "Spécialement pour les élèves ivoiriens",
     title: "Maîtrisez enfin vos",
     highlight: "exercices difficiles",
     description:
-      "TaNote analyse vos problèmes scolaires, vous fournit des explications claires et vous guide vers la solution pas à pas.",
+      "TaNote analyse vos problèmes scolaires selon le programme ivoirien, vous fournit des explications claires et vous guide vers la solution pas à pas.",
+    cta: "Commencer gratuitement",
+    ctaLink: "/auth/register"
   },
   {
-    badge: "Adapté au programme ivoirien",
-    title: "Progressez à votre",
-    highlight: "propre rythme",
-    description:
-      "Des exercices personnalisés selon votre niveau, du CP à la Terminale. Chaque élève mérite une attention particulière.",
-  },
-  {
-    badge: "Suivi en temps réel",
+    badge: "Suivi parental pour 2 enfants",
     title: "Parents, suivez les",
     highlight: "progrès de vos enfants",
     description:
-      "Un tableau de bord complet pour accompagner la réussite scolaire de vos enfants avec des alertes et rapports détaillés.",
+      "Un tableau de bord complet pour suivre jusqu'à 2 enfants, avec des alertes personnalisées et des rapports détaillés adaptés au système ivoirien.",
+    cta: "Espace parents",
+    ctaLink: "/parent"
   },
 ]
 
@@ -140,13 +146,13 @@ export function HeroSection() {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/auth/register">
+          <Link href={slide.ctaLink}>
             <Button
               size="lg"
               variant="outline"
               className="text-base px-8 h-12 gap-2 group bg-foreground text-background border-foreground hover:bg-background hover:text-foreground dark:bg-background dark:text-foreground dark:hover:bg-foreground dark:hover:text-background transition-all duration-300"
             >
-              Commencer gratuitement
+              {slide.cta}
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
@@ -165,15 +171,15 @@ export function HeroSection() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-success" />
-            <span>Gratuit pour commencer</span>
+            <span>Test de niveau gratuit</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-success" />
-            <span>Sans engagement</span>
+            <span>Programme ivoirien</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 rounded-full bg-success" />
-            <span>+12 500 élèves actifs</span>
+            <span>+12 500 élèves ivoiriens</span>
           </div>
         </div>
       </div>
