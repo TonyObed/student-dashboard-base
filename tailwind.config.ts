@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        'poppins': ['var(--font-poppins)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -51,6 +54,13 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        tanote: {
+          blue: "var(--tanote-blue)",
+          'blue-light': "var(--tanote-blue-light)",
+          purple: "var(--tanote-purple)",
+          gray: "var(--tanote-gray)",
+          white: "var(--tanote-white)",
         },
       },
       borderRadius: {
