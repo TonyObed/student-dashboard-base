@@ -20,16 +20,16 @@ export function CTASection() {
 
           <div className="relative z-10">
             <div className="flex items-center justify-center mb-5">
-              <div className="inline-flex items-center gap-2 bg-white text-primary rounded-full px-5 py-2 text-sm font-bold shadow-lg">
+              <div className="inline-flex items-center gap-2 bg-white text-primary rounded-full px-5 py-2 text-sm font-bold shadow-lg dark:bg-primary dark:text-white">
                 <Sparkles className="h-4 w-4" />
                 <span>Rejoins la communauté TaNote</span>
               </div>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 text-center text-balance drop-shadow-md">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 text-center text-balance drop-shadow-md dark:text-white">
               Prêt à transformer tes résultats scolaires ?
             </h2>
-            <p className="text-white/95 max-w-2xl mx-auto mb-6 text-base sm:text-lg text-center leading-relaxed drop-shadow-sm">
+            <p className="text-white/95 max-w-2xl mx-auto mb-6 text-base sm:text-lg text-center leading-relaxed drop-shadow-sm dark:text-white">
               Ne laisse plus les exercices difficiles te bloquer. Avec TaNote, chaque problème devient une opportunité
               d'apprendre.
             </p>
@@ -39,7 +39,7 @@ export function CTASection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-base px-8 h-12 gap-2 group font-semibold shadow-lg bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-white transition-all duration-300"
+                  className="text-base px-8 h-12 gap-2 group font-semibold shadow-lg bg-white text-primary border-white hover:bg-primary hover:text-white hover:border-white transition-all duration-300 dark:bg-primary dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-primary"
                 >
                   Commencer gratuitement maintenant
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -49,7 +49,7 @@ export function CTASection() {
 
             <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-8">
               {benefits.map((benefit, i) => (
-                <div key={i} className="flex items-center gap-2 text-white">
+                <div key={i} className="flex items-center gap-2 text-white dark:text-white">
                   <benefit.icon className="h-4 w-4" />
                   <span className="text-sm font-medium">{benefit.text}</span>
                 </div>

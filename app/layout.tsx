@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     "Plateforme éducative IA pour les élèves ivoiriens. Diagnostic personnalisé, exercices adaptés et suivi de progression.",
     generator: 'v0.app',
   icons: {
-    icon: "/tanote-favicon.png",
-    shortcut: "/tanote-favicon.png",
-    apple: "/tanote-favicon.png",
+    icon: "/logos/sub_logo.png",
+    shortcut: "/logos/sub_logo.png",
+    apple: "/logos/sub_logo.png",
   },
 }
 

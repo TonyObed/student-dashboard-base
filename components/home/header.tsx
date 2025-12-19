@@ -31,6 +31,11 @@ export function HeaderNav() {
   const [scrolled, setScrolled] = useState(false)
   const [currentLang, setCurrentLang] = useState("fr")
   const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,12 +103,13 @@ export function HeaderNav() {
               size="icon"
               className="h-9 w-9 hover:bg-primary hover:text-primary-foreground dark:hover:bg-primary transition-colors"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              suppressHydrationWarning
             >
-              {theme === "light" ? (
+              {mounted && (theme === "light" ? (
                 <Moon className="h-4 w-4" />
               ) : (
                 <Sun className="h-4 w-4" />
-              )}
+              ))}
               <span className="sr-only">Changer le thème</span>
             </Button>
 

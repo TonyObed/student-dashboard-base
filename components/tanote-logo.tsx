@@ -6,9 +6,11 @@ interface TaNoteLogoProps {
   subtitle?: string
   light?: boolean
   variant?: "default" | "icon-only"
+  logoPattern?: string
+  faviconPattern?: string
 }
 
-export function TaNoteLogo({ size = "md", showText = true, subtitle, light = false, variant = "default" }: TaNoteLogoProps) {
+export function TaNoteLogo({ size = "md", showText = true, subtitle, light = false, variant = "default", logoPattern = "sub_logo", faviconPattern = "sub_logo" }: TaNoteLogoProps) {
   const imageSizes = {
     sm: 32,
     md: 40,
@@ -41,7 +43,7 @@ export function TaNoteLogo({ size = "md", showText = true, subtitle, light = fal
     <div className={`flex items-center ${containerClasses[size]}`}>
       <div className="relative">
         <Image
-          src="/tanote-logo.png"
+          src={`/logos/${logoPattern}.png`}
           alt="TaNote Logo"
           width={imageSizes[size]}
           height={imageSizes[size]}
